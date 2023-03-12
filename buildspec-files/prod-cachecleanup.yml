@@ -1,0 +1,11 @@
+version: 0.2
+
+env:
+  variables:
+    ENV: "dev"
+
+phases:
+  post_build:
+    commands:
+      - echo invalidating cache
+      - aws cloudfront create-invalidation --distribution-id E2DMZOI817L0Q4 --paths '/*'

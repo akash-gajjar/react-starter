@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo installing dependencies for env $NODE_ENV...
+      - yarn install
+  build:
+    commands:
+      - echo building frontend project
+      - yarn build:prod
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: ./
+cache:
+  paths:
+    - 'node_modules/**/*'

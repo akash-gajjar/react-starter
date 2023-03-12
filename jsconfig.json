@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "Node",
+    "checkJs": false,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "#/*": ["./src/*"],
+      "#/assets/*": ["./src/assets/*"],
+      "#/components/*": ["./src/components/*"],
+      "#/constants/*": ["./src/constants/*"],
+      "#/hooks/*": ["./src/hooks/*"],
+      "#/modules/*": ["./src/modules/*"],
+      "#/router/*": ["./src/router/*"],
+      "#/services/*": ["./src/services/*"],
+      "#/context/*": ["./src/context/*"],
+      "#/styles/*": ["./src/styles/*"],
+      "#/utils/*": ["./src/utils/*"],
+      "#/queries/*": ["./src/queries/*"],
+      "#/theme/*": ["./src/theme/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

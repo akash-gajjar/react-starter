@@ -1,0 +1,31 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+    ["lodash"],
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "#/assets": "./src/assets/",
+          "#/components": "./src/components/",
+          "#/constants": "./src/constants/",
+          "#/context": "./src/context",
+          "#/hooks": "./src/hooks/",
+          "#/modules": "./src/modules/",
+          "#/router": "./src/router/",
+          "#/services": "./src/services/",
+          "#/styles": "./src/styles/",
+          "#/utils": "./src/utils/",
+          "#/config": "./src/config.js",
+          "#/queries": "./src/queries/",
+          "#/theme": "./src/theme/",
+          "#/": "./src/"
+        },
+        "extensions": [".js", ".jsx", ".json", ".svg", ".jpg", ".png"]
+      }
+    ],
+    "@babel/plugin-proposal-class-properties",
+    "babel-plugin-styled-components"
+  ]
+}

@@ -1,0 +1,38 @@
+name: ESLint
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: actions/cache@v3
+      with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+    - name: Fetch the base branch
+      run: git fetch origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
+    - name: Install dependencies
+      run: |
+        yarn --frozen-lockfile --production=false
+    - name: Run eslint on changed files
+      uses: tj-actions/eslint-changed-files@v14
+      with:
+        config_path: ".eslintrc.js"
+        extra_args: "--max-warnings=0"
+        file_extensions: |
+          **/*.js

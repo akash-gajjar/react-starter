@@ -1,0 +1,20 @@
+# Configuration file for MegaLinter
+# See all available variables at https://megalinter.io/configuration/ and in linters documentation
+
+APPLY_FIXES: all # all, none, or list of linter keys
+# ENABLE: # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
+# ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
+# DISABLE:
+# - COPYPASTE # Uncomment to disable checks of excessive copy-pastes
+# - SPELL # Uncomment to disable checks of spelling mistakes
+SHOW_ELAPSED_TIME: true
+FILEIO_REPORTER: false
+# DISABLE_ERRORS: true # Uncomment if you want MegaLinter to detect errors but not block CI to pass
+PRE_COMMANDS:
+  - command: yarn add @babel/plugin-proposal-class-properties @babel/plugin-proposal-optional-chaining @babel/preset-env @babel/preset-react babel-eslint babel-loader babel-plugin-lodash babel-plugin-module-resolver babel-plugin-styled-components eslint-config-airbnb eslint-config-prettier eslint-import-resolver-babel-module eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-unused-imports stylelint-config-recommended stylelint-config-styled-components stylelint-processor-styled-components stylelint-webpack-plugin
+    cwd: 'root' # Will be run at the root of MegaLinter docker image
+  - command: yarn add @babel/plugin-proposal-class-properties @babel/plugin-proposal-optional-chaining @babel/preset-env @babel/preset-react babel-eslint babel-loader babel-plugin-lodash babel-plugin-module-resolver babel-plugin-styled-components eslint-config-airbnb eslint-config-prettier eslint-import-resolver-babel-module eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-unused-imports stylelint-config-recommended stylelint-config-styled-components stylelint-processor-styled-components stylelint-webpack-plugin
+    cwd: 'workspace' # Will be run at the root of MegaLinter docker image
+JAVASCRIPT_DEFAULT_STYLE: prettier
+MARKDOWN_MARKDOWN_LINK_CHECK_FILTER_REGEX_EXCLUDE: 'README.md'
+FLAVOR_SUGGESTIONS: true
