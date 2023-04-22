@@ -5,17 +5,18 @@ phases:
     runtime-versions:
       nodejs: 16
     commands:
+      - n 16
       - echo installing dependencies for env $NODE_ENV...
       - yarn install
   build:
     commands:
-      - echo building frontend project
+      - echo building project
       - yarn build:prod
 artifacts:
   files:
     - '**/*'
   discard-paths: no
-  base-directory: ./
+  base-directory: dist
 cache:
   paths:
     - 'node_modules/**/*'
