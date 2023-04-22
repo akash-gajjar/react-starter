@@ -1,5 +1,6 @@
 const path = require('path');
 
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,6 +9,7 @@ const postcssNormalize = require('postcss-normalize');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 module.exports = {
+  context: path.resolve(__dirname),
   target: 'web',
   entry: path.join(__dirname, 'src', 'index.js'),
   output: {
@@ -16,6 +18,7 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
+    new CaseSensitivePathsPlugin(),
     new MiniCssExtractPlugin({
       filename: process.env.NODE_ENV === 'production' ? '[name]-[contenthash].css' : '[name].css',
     }),
@@ -44,17 +47,6 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.svg$/i,
-        type: 'asset',
-        resourceQuery: /url/, // *.svg?url
-      },
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
-        use: ['@svgr/webpack'],
-      },
-      {
         test: /\.(png|jpg|gif|jpeg|webp|ico)$/,
         use: [
           {
@@ -73,6 +65,24 @@ module.exports = {
         generator: {
           filename: './fonts/[name][ext]',
         },
+      },
+      {
+        test: /\.svg$/,
+        oneOf: [
+          {
+            issuer: /\.[jt]sx?$/,
+            resourceQuery: /react/, // *.svg?react
+            use: ['@svgr/webpack'],
+          },
+          {
+            type: 'asset',
+            parser: {
+              dataUrlCondition: {
+                maxSize: 200,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.less$/,
