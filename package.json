@@ -88,7 +88,7 @@
     "react-refresh": "^0.14.0",
     "regenerator-runtime": "^0.13.11",
     "sass": "^1.63.6",
-    "sass-loader": "^13.3.2",
+    "sass-loader": "^13.3.3",
     "serve": "^14.2.1",
     "style-loader": "^3.3.3",
     "stylelint": "^15.11.0",
