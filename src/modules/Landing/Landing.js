@@ -1,14 +1,11 @@
 import React from 'react';
 
-import WithErrorBoundary from '#/hooks/withErrorBoundary';
 import { StyledContainer } from './Landing.styled';
 
+import WithErrorBoundary from '#/hooks/withErrorBoundary';
+
 const Landing = () => {
-  return (
-    <StyledContainer>
-      Hi!
-    </StyledContainer>
-  );
+  return <StyledContainer>Hi!</StyledContainer>;
 };
 
 export default WithErrorBoundary(Landing);

@@ -1,84 +1,92 @@
 @font-face {
   font-family: 'inter_thin';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 100;
   font-display: swap;
-  src: url("inter-thin.woff2?v=3.19") format("woff2"),
-       url("inter-thin.woff?v=3.19") format("woff");
+  src:
+    url('inter-thin.woff2?v=3.19') format('woff2'),
+    url('inter-thin.woff?v=3.19') format('woff');
 }
 
 @font-face {
   font-family: 'inter_extralight';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 200;
   font-display: swap;
-  src: url("inter-extralight.woff2?v=3.19") format("woff2"),
-       url("inter-extralight.woff?v=3.19") format("woff");
+  src:
+    url('inter-extralight.woff2?v=3.19') format('woff2'),
+    url('inter-extralight.woff?v=3.19') format('woff');
 }
 
 @font-face {
   font-family: 'inter_light';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url("inter-light.woff2?v=3.19") format("woff2"),
-       url("inter-light.woff?v=3.19") format("woff");
+  src:
+    url('inter-light.woff2?v=3.19') format('woff2'),
+    url('inter-light.woff?v=3.19') format('woff');
 }
 
 @font-face {
   font-family: 'inter_regular';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("inter-regular.woff2?v=3.19") format("woff2"),
-       url("inter-regular.woff?v=3.19") format("woff");
+  src:
+    url('inter-regular.woff2?v=3.19') format('woff2'),
+    url('inter-regular.woff?v=3.19') format('woff');
 }
 
 @font-face {
   font-family: 'inter_medium';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("inter-medium.woff2?v=3.19") format("woff2"),
-       url("inter-medium.woff?v=3.19") format("woff");
+  src:
+    url('inter-medium.woff2?v=3.19') format('woff2'),
+    url('inter-medium.woff?v=3.19') format('woff');
 }
 
 @font-face {
   font-family: 'inter_semibold';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("inter-semibold.woff2?v=3.19") format("woff2"),
-       url("inter-semibold.woff?v=3.19") format("woff");
+  src:
+    url('inter-semibold.woff2?v=3.19') format('woff2'),
+    url('inter-semibold.woff?v=3.19') format('woff');
 }
 
 @font-face {
   font-family: 'inter_bold';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("inter-bold.woff2?v=3.19") format("woff2"),
-       url("inter-bold.woff?v=3.19") format("woff");
+  src:
+    url('inter-bold.woff2?v=3.19') format('woff2'),
+    url('inter-bold.woff?v=3.19') format('woff');
 }
 
 @font-face {
   font-family: 'inter_extrabold';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url("inter-extrabold.woff2?v=3.19") format("woff2"),
-       url("inter-extrabold.woff?v=3.19") format("woff");
+  src:
+    url('inter-extrabold.woff2?v=3.19') format('woff2'),
+    url('inter-extrabold.woff?v=3.19') format('woff');
 }
 
 @font-face {
   font-family: 'inter_black';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url("inter-black.woff2?v=3.19") format("woff2"),
-       url("inter-black.woff?v=3.19") format("woff");
+  src:
+    url('inter-black.woff2?v=3.19') format('woff2'),
+    url('inter-black.woff?v=3.19') format('woff');
 }
-
 
 /* -------------------------------------------------------
 Variable font.
@@ -94,5 +102,5 @@ Usage:
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
-  src: url("inter-roman.var.woff2?v=3.19") format("woff2");
+  src: url('inter-roman.var.woff2?v=3.19') format('woff2');
 }

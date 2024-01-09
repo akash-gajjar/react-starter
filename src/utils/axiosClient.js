@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-import { API_URL } from '#/config';
+import { APP_API_URL } from '#/config';
 
 const EXCLUDE_REDIRECT_PATHS = ['/login'];
 
 const axiosClient = axios.create({
-  baseURL: `${API_URL}`,
+  baseURL: `${APP_API_URL}`,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -30,7 +30,7 @@ axiosClient.interceptors.response.use(
       data: { token },
     } = response;
 
-    if (url === `${API_URL}` && status === 200) {
+    if (url === `${APP_API_URL}` && status === 200) {
       localStorage.setItem('token', JSON.stringify(token));
     }
 
