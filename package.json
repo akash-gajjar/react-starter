@@ -25,7 +25,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.17.9",
     "@tanstack/react-query-devtools": "^5.17.9",
-    "axios": "^1.6.5",
+    "axios": "^1.6.7",
     "date-fns": "^3.3.1",
     "history": "^5.3.0",
     "jwt-decode": "^4.0.0",
