@@ -12,6 +12,6 @@
   ],
   "language": "en",
   "noConfigSearch": true,
-  "words": ["megalinter", "oxsecurity", "tanstack", "Adrixus", "svgr", "pmmmwh"],
+  "words": ["megalinter", "oxsecurity", "tanstack", "svgr", "pmmmwh"],
   "version": "0.2"
 }

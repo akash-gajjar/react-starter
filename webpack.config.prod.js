@@ -1,17 +1,13 @@
 const CompressionPlugin = require('compression-webpack-plugin');
-const { pickBy } = require('lodash');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const S3Plugin = require('webpack-s3-plugin');
 
 const commonConfig = require('./webpack.config.common');
 
-require('dotenv').config({ path: './.env' });
+require('dotenv').config({ path: './.env.production' });
 
-// check if running inside AWS CodeBuild
-const isCI = process.env.CODEBUILD_BUILD_ID;
-// include only variable used in our application
-const env = pickBy(process.env, (_, key) => key.match(/^APP/));
+const { COMPRESS_ASSETS = null, DEPLOY_TO_S3 = null } = process.env;
 
 /**
  * @typedef {import('webpack').Configuration} Configuration
@@ -25,17 +21,21 @@ const config = {
   plugins: [
     new webpack.DefinePlugin({
       process: {
-        env: JSON.stringify(env),
+        env: {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+          APP_API_URL: JSON.stringify(process.env.APP_API_URL),
+          APP_ASSET_URL: JSON.stringify(process.env.APP_ASSET_URL),
+        },
       },
     }),
-    isCI &&
+    COMPRESS_ASSETS &&
       new CompressionPlugin({
         test: /\.(js|css)$/,
         filename: '[path][base]',
         algorithm: 'gzip',
         deleteOriginalAssets: true,
       }),
-    isCI &&
+    DEPLOY_TO_S3 &&
       new S3Plugin({
         s3Options: {
           accessKeyId: process.env.AWS_ACCESS_KEY_ID,
