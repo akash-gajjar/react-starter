@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "formulahendry.auto-close-tag",
+    "aaron-bond.better-comments",
+    "streetsidesoftware.code-spell-checker",
+    "usernamehw.errorlens",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss"
+  ],
+  "unwantedRecommendations": [
+    "mgmcdermott.vscode-language-babel",
+    "oouo-diogo-perdigao.docthis",
+    "stylelint.vscode-stylelint"
+  ]
+}

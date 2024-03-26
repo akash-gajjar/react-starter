@@ -41,8 +41,7 @@ const ScrollToTop = ({ behavior, scrollInto = false, trigger = null }) => {
 ScrollToTop.propTypes = {
   behavior: PropTypes.string,
   scrollInto: PropTypes.bool,
-  // eslint-disable-next-line react/forbid-prop-types
-  trigger: PropTypes.any,
+  trigger: PropTypes.node,
 };
 
 ScrollToTop.defaultProps = {

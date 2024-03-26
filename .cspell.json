@@ -12,6 +12,18 @@
   ],
   "language": "en",
   "noConfigSearch": true,
-  "words": ["megalinter", "oxsecurity", "tanstack", "svgr", "pmmmwh"],
+  "words": [
+    "Aakash",
+    "aakashgajjar",
+    "akash",
+    "gajjar",
+    "megalinter",
+    "oxsecurity",
+    "pmmmwh",
+    "sigmacomputing",
+    "stylelint",
+    "svgr",
+    "tanstack"
+  ],
   "version": "0.2"
 }

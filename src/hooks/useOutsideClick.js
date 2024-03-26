@@ -1,5 +1,11 @@
 import { useEffect } from 'react';
 
+/**
+ * Trigger function call when mouse click is outside the ref element.
+ *
+ * @param {{current:import('react').ReactHTMLElement}} ref
+ * @param {function} handler
+ */
 export const useOutsideClick = (ref, handler) => {
   useEffect(() => {
     const listener = (event) => {

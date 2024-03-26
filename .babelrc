@@ -1,11 +1,18 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
   "plugins": [
-    ["@sigmacomputing/babel-plugin-lodash"],
+    [
+      "@sigmacomputing/babel-plugin-lodash"
+    ],
     [
       "module-resolver",
       {
-        "root": ["./src"],
+        "root": [
+          "./src"
+        ],
         "alias": {
           "#/assets": "./src/assets/",
           "#/components": "./src/components/",
@@ -22,10 +29,22 @@
           "#/theme": "./src/theme/",
           "#/": "./src/"
         },
-        "extensions": [".js", ".jsx", ".json", ".svg", ".jpg", ".png"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".json",
+          ".svg",
+          ".jpg",
+          ".png"
+        ]
       }
     ],
     "@babel/plugin-proposal-class-properties",
-    "babel-plugin-styled-components"
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": true
+      }
+    ]
   ]
 }
