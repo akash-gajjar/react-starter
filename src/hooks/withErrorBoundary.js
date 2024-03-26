@@ -6,6 +6,15 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import ErrorFallback from '#/components/ErrorFallback';
 
+/**
+ * Wrap component using `react-error-boundary`
+ *
+ * @typedef {import('react').ReactNode} Component
+ *
+ * @param {Component} Component
+ * @param {*} ErrorFallbackComponent
+ * @return {Component}
+ */
 const WithErrorBoundary = (Component, ErrorFallbackComponent) => {
   const Closure = (props) => {
     return (

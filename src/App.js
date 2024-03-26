@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import Layout from '#/components/Layout';
 import { Landing } from '#/modules';
@@ -15,7 +15,7 @@ const App = () => {
           <Route index element={<Landing />} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Layout.NotFound />} />
       </Routes>
     </Suspense>
   );

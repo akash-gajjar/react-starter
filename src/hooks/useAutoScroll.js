@@ -1,5 +1,11 @@
 import { useEffect } from 'react';
 
+/**
+ * Auto scroll on change in target element
+ *
+ * @param {{current:import('react').ReactHTMLElement}} target
+ * @param {{minHeight: number}} [options={ minHeight: 700 }]
+ */
 const useAutoScroll = (target, options = { minHeight: 700 }) => {
   useEffect(() => {
     if (target.current) {

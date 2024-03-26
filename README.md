@@ -13,6 +13,49 @@
 
 ## Development Setup
 
+### Use Tailwind
+
+Simply add import for [tailwind.scss](src/styles/tailwind.scss) in [index.js](src/index.js)
+
+### Using SVG
+
+There are two ways to import SVG, as an inline SVG and as a Image. Depending on the use case,
+for loading SVG as a Image append `?url` while importing, this will not inline the SVG, whereas
+default import will inline the SVG content.
+
+```js
+import Svg from './assets/file.svg?react'; //<--- SVG as React component
+import svg from './assets/file.svg'; // <--- SVG as Image
+
+const App = () => {
+  return (
+    <div>
+      <img src={svg} width="200" height="200" />
+      <Svg width="200" height="200" viewBox="0 0 3500 3500" />
+    </div>
+  );
+};
+```
+
+## AWS Build
+
+The project comes with default settings for hosting on AWS S3 using Cloudfront. The setup is
+optimized to reduce the client payload size by compressing JS, CSS assets in gzip format. To
+achieve this, it uses the `compression-webpack-plugin` to compress the assets before uploading
+them to S3 using the `webpack-s3-plugin`.
+
+For taking advantage of this, below AWS configuration are required
+
+```env
+DEPLOY_TO_S3=Y
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+FRONTEND_BUCKET_NAME=
+```
+
+### Git
+
 There are two branches
 
 - `develop` for active development
@@ -79,24 +122,3 @@ git push
 ```
 
 Now you can submit a PR.
-
-## Notes
-
-### Using SVG
-
-Since we are using `@svgr/webpack` we can directly import SVG as react components, but
-this will create issues when we need them in styled components, we can achieve as follows
-
-```js
-import svg from './assets/file.svg?url'; //<--- SVG as url with url suffix
-import Svg from './assets/file.svg'; // <--- SVG as React Component
-
-const App = () => {
-  return (
-    <div>
-      <img src={svg} width="200" height="200" />
-      <Svg width="200" height="200" viewBox="0 0 3500 3500" />
-    </div>
-  );
-};
-```

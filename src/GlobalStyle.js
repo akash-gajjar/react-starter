@@ -9,10 +9,11 @@ const GlobalStyle = createGlobalStyle`
 
 html, body, #root {
   width: 100%;
+  min-height: 100vh;
   font-family: ${({ theme }) => theme.fontFamily.regular};
   overflow-x: hidden;
-  background: black;
-  color: white;
+  background: white;
+  color: black;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -22,8 +23,8 @@ h1, h2, h3, h4, h5, h6, p {
 
 // Default text selection color
 ::selection {
-  /* color: white !important;
-  background: white !important; */
+  color: white !important;
+  background: black !important;
 }
 
 ul li {

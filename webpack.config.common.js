@@ -1,12 +1,16 @@
+const childprocess = require('child_process');
 const path = require('path');
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssNormalize = require('postcss-normalize');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+
+const gitRevision = childprocess.execSync('git rev-parse HEAD').toString().trim();
 
 module.exports = {
   context: path.resolve(__dirname),
@@ -17,6 +21,9 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
   },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
   plugins: [
     new CaseSensitivePathsPlugin(),
     new MiniCssExtractPlugin({
@@ -26,6 +33,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
+      templateParameters: {
+        gitRevision,
+        buildTime: new Date().toISOString(),
+      },
     }),
     new CopyPlugin({
       patterns: [{ from: './public/images', to: 'images', noErrorOnMissing: true }],
@@ -97,18 +108,18 @@ module.exports = {
           },
           'css-loader',
           {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production', // <-- !!IMPORTANT!!
+            },
+          },
+          {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 ident: 'postcss',
                 plugins: () => [postcssNormalize()],
               },
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: process.env.NODE_ENV !== 'production', // <-- !!IMPORTANT!!
             },
           },
         ],
