@@ -86,7 +86,7 @@
     "postcss": "^8.4.38",
     "postcss-loader": "^8.1.1",
     "postcss-normalize": "^10.0.1",
-    "postcss-preset-env": "^9.5.2",
+    "postcss-preset-env": "^9.5.3",
     "prettier": "^3.2.5",
     "react-refresh": "^0.14.0",
     "regenerator-runtime": "^0.14.1",
